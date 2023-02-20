@@ -238,6 +238,19 @@ class DataClassBuilder {
       buffer.writeln('  );');
     }
 
+    // Map representation
+
+    if (true) {
+      buffer.writeln();
+      buffer.writeln('  Map<String, Object?> toMap() => {');
+      for (var propertyName in _properties.keys) {
+        final property = _properties[propertyName]!;
+        propertyName = createFieldName(propertyName);
+        buffer.writeln('    \'$propertyName\': ${property.fieldName},');
+      }
+      buffer.writeln('  };');
+    }
+
     if (equalityComparer) {
       // Operator ==
       buffer.writeln();
