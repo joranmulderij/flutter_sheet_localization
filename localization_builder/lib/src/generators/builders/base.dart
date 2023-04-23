@@ -1,8 +1,9 @@
 import 'package:recase/recase.dart';
 
 String createFieldName(String name) {
-  final cased = ReCase(name);
-  return _removeSpecialCharacters(cased.camelCase);
+  // final cased = ReCase(name);
+  // return _removeSpecialCharacters(cased.camelCase);
+  return name;
 }
 
 String createClassdName(String name) {
@@ -12,7 +13,7 @@ String createClassdName(String name) {
 
 String _removeSpecialCharacters(String value) {
   final result = StringBuffer();
-  final regexp = RegExp('[a-zA-Z0-9]');
+  final regexp = RegExp('[a-zA-Z0-9_]');
   for (var i = 0; i < value.length; i++) {
     final character = value[i];
     if (regexp.allMatches(character).isNotEmpty) {
